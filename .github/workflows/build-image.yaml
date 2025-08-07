@@ -26,8 +26,8 @@ jobs:
 
             - name: Tag & push Backend
               run: |
-                docker tag todo101-todo-backend xeei/todo-backend:lastest
+                docker tag todo-backend xeei/todo-backend:lastest
 
             - name: Tag & push Frontend
               run: |
-                docker tag todo101-todo-frontend xeei/todo-frontend:lastest
+                docker tag todo-frontend xeei/todo-frontend:lastest
