@@ -1,0 +1,37 @@
+# Use root/example as user/password credentials
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+  
+  todo-backend:
+    image: backend
+    container_name: backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_URL=mongodb://192.168.61.37:27017/todos
+    ports:
+      - "15000:15000"
+    depends_on:
+      - mongo
+
+  todo-frontend:
+    image: frontend
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      - BACKEND_HOST=http://localhost:15000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
