@@ -11,8 +11,8 @@ services:
       - ./data:/data/db
   
   todo-backend:
-    image: backend
-    container_name: backend
+    image: todo-backend
+    container_name: todo-backend
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -24,8 +24,8 @@ services:
       - mongo
 
   todo-frontend:
-    image: frontend
-    container_name: frontend
+    image: todo-frontend
+    container_name: todo-frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
