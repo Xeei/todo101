@@ -16,5 +16,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    environment:
+      - MONGO_URL=mongodb://192.168.61.37:27017/todos
     ports:
       - "15000:15000"

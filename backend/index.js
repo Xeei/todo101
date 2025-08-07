@@ -6,7 +6,9 @@ const mongoURL = process.env.MONGO_URL || 'mongodb://localhost:27017/todos'
 
 const app = express()
 const PORT = 15000
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:3000'
+}))
 app.use(express.json())
 
 const Task = mongoose.model('Task', new mongoose.Schema({ text: String, completed: Boolean}))
