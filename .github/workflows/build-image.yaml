@@ -23,11 +23,14 @@ jobs:
             - name: Build Images
               run: |
                 docker compose build
-
+                docker ps
+            
             - name: Tag & push Backend
               run: |
-                docker tag todo-backend xeei/todo-backend:lastest
+                docker tag todo-backend:latest xeei/todo-backend:latest
+                docker push xeei/todo-backend:latest
 
             - name: Tag & push Frontend
               run: |
-                docker tag todo-frontend xeei/todo-frontend:lastest
+                docker tag todo-frontend:latest xeei/todo-frontend:latest
+                docker push xeei/todo-frontend:latest
