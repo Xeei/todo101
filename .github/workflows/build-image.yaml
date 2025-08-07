@@ -27,10 +27,10 @@ jobs:
             
             - name: Tag & push Backend
               run: |
-                docker tag todo-backend:latest xeei/todo-backend:latest
-                docker push xeei/todo-backend:latest
+                docker tag todo-backend:latest ${{ secrets.DOCKER_USER }}/todo-backend:latest
+                docker push ${{ secrets.DOCKER_USER }}/todo-backend:latest
 
             - name: Tag & push Frontend
               run: |
-                docker tag todo-frontend:latest xeei/todo-frontend:latest
-                docker push xeei/todo-frontend:latest
+                docker tag todo-frontend:latest ${{ secrets.DOCKER_USER }}/todo-frontend:latest
+                docker push ${{ secrets.DOCKER_USER }}/todo-frontend:latest
