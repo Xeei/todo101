@@ -17,7 +17,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      - MONGO_URL=mongodb://192.168.61.37:27017/todos
+      - MONGO_URL=mongodb://mongo:27017/todos
     ports:
       - "15000:15000"
     depends_on:
